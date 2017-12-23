@@ -233,8 +233,8 @@ public final class Sort
             int i = left, j = right - 1;
             for( ; ; )
             {
-                while( a[ ++i ].compareTo( pivot ) < 0 ) { }
-                while( a[ --j ].compareTo( pivot ) > 0 ) { }
+                while( a[ ++i ].compareTo( pivot ) < 0 ) { } //扫描 从左开始
+                while( a[ --j ].compareTo( pivot ) > 0 ) { } 
                 if( i < j )
                     swapReferences( a, i, j );
                 else
@@ -260,16 +260,16 @@ public final class Sort
     private static <AnyType extends Comparable<? super AnyType>>
     void insertionSort( AnyType [ ] a, int left, int right )
     {
-        for( int p = left + 1; p <= right; p++ )
-        {
-            AnyType tmp = a[ p ];
-            int j;
+    for( int p = left + 1; p <= right; p++ )
+    {
+        AnyType tmp = a[ p ];
+        int j;
 
-            for( j = p; j > left && tmp.compareTo( a[ j - 1 ] ) < 0; j-- )
-                a[ j ] = a[ j - 1 ];
-            a[ j ] = tmp;
-        }
+        for( j = p; j > left && tmp.compareTo( a[ j - 1 ] ) < 0; j-- )
+            a[ j ] = a[ j - 1 ];
+        a[ j ] = tmp;
     }
+}
 
     /**
      * Quick selection algorithm.
@@ -371,7 +371,7 @@ public final class Sort
             for (int m = data.length - 1; m >= 0; m--) {
                 int subKey = (tmp[m] / rate) % radix;
                 data[--buckets[subKey]] = tmp[m];
-            }
+           }
             rate *= radix;// radix 为基数
         }
 

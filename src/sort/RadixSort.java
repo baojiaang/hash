@@ -37,5 +37,15 @@ public class RadixSort {
         }
 
 
+
+    }
+    public static void main(String[] args) {
+        int a[]={1,355,7};
+        RadixSort.radixSort(a,10,3);
+        for (int i:a
+             ) {
+            System.out.println(i);
+        }
+
     }
 }
