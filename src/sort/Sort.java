@@ -235,14 +235,16 @@ public final class Sort
             {
                 while( a[ ++i ].compareTo( pivot ) < 0 ) { } //扫描 从左开始
                 while( a[ --j ].compareTo( pivot ) > 0 ) { } 
-                if( i < j )
+                if( i < j ){
                     swapReferences( a, i, j );
+                    print(a);
+                }
                 else
                     break;
             }
 
             swapReferences( a, i, right - 1 );   // Restore pivot
-
+            print(a);
             quicksort( a, left, i - 1 );    // Sort small elements
             quicksort( a, i + 1, right );   // Sort large elements
         }
@@ -283,6 +285,8 @@ public final class Sort
         quickSelect( a, 0, a.length - 1, k );
     }
 
+
+
     /**
      * Internal selection method that makes recursive calls.
      * Uses median-of-three partitioning and a cutoff of 10.
@@ -292,6 +296,7 @@ public final class Sort
      * @param right the right-most index of the subarray.
      * @param k the desired index (1 is minimum) in the entire array.
      */
+
     private static <AnyType extends Comparable<? super AnyType>>
     void quickSelect( AnyType [ ] a, int left, int right, int k )
     {
@@ -305,14 +310,18 @@ public final class Sort
             {
                 while( a[ ++i ].compareTo( pivot ) < 0 ) { }
                 while( a[ --j ].compareTo( pivot ) > 0 ) { }
-                if( i < j )
-                    swapReferences( a, i, j );
+                if( i < j ) {
+                    swapReferences(a, i, j);
+                   print(a);
+                }
+
                 else
                     break;
             }
 
             swapReferences( a, i, right - 1 );   // Restore pivot
-
+            System.out.println("-------------------------------------");
+         print(a);
             if( k <= i )
                 quickSelect( a, left, i - 1, k );
             else if( k > i + 1 )
@@ -387,6 +396,12 @@ public final class Sort
             Sort.swapReferences(a,i,min);
         }
     }
+    public static <AnyType extends Comparable<? super AnyType>>void print(AnyType a[]){
+        for(int i=0;i<a.length;i++) {
+            System.out.print(a[i]);
+        }
+        System.out.println("----------------------------");
+    }
 
     private static final int NUM_ITEMS = 1000;
     private static int theSeed = 1;
@@ -397,6 +412,11 @@ public final class Sort
             if( a[ i ] != i )
                 System.out.println( "Error at " + i );
         System.out.println( "Finished checksort" );
+    }
+
+    public static void main(String[] args) {
+        Integer a[]=new Integer[]{8,1,4,9,6,3,5,2,7,0,11,13};
+        quicksort(a);
     }
 
 
