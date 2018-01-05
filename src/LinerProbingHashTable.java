@@ -1,4 +1,4 @@
-public class QuadraticProbingHashTable<AnyType> {
+public class LinerProbingHashTable<AnyType> {
     public void  print(){
         for(int i=0;i<array.length;i++)
         {
@@ -9,10 +9,10 @@ public class QuadraticProbingHashTable<AnyType> {
                 //System.out.println("null");
         }
     }
-    public QuadraticProbingHashTable(){
+    public LinerProbingHashTable(){
         this(DEFAULT_TABLE_SIZE);
     }
-    public QuadraticProbingHashTable(int size){
+    public LinerProbingHashTable(int size){
         allocateArray(size); //new the array
         makeEmpty();//make it empty
     }
@@ -129,7 +129,7 @@ public class QuadraticProbingHashTable<AnyType> {
 
     public static void main(String[] args) {
         long startTime=System.currentTimeMillis();
-        QuadraticProbingHashTable q=new QuadraticProbingHashTable();
+        LinerProbingHashTable q=new LinerProbingHashTable();
         int a[]={4371,1223,6173,4199,4344,9679,1989};
         for (int i = 0; i <a.length ; i++) {
             q.insert(a[i]);

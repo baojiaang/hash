@@ -244,7 +244,7 @@ public final class Sort
             }
 
             swapReferences( a, i, right - 1 );   // Restore pivot
-            print(a);
+          //  print(a);
             quicksort( a, left, i - 1 );    // Sort small elements
             quicksort( a, i + 1, right );   // Sort large elements
         }

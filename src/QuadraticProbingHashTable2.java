@@ -70,17 +70,29 @@ public class QuadraticProbingHashTable2<AnyType> {
     private boolean isActive(int currentPos){//是否 活跃  参数：当前输入的位置
         return array[currentPos]!=null&&array[currentPos].isActive;
     }
+
     private int findPos(AnyType x){
         int offSet=1;//探测的值
         int currentPos=myhash(x);
+
         while(array[currentPos]!=null &&!array[currentPos].element.equals(x) )
         {
-            currentPos+=offSet;
-            offSet+=2; //书中说这样相加 效果等同于 f(i)=f(i-1)+2i-2
+           // currentPos+=offSet;
+            //offSet+=2; //书中说这样相加 效果等同于 f(i)=f(i-1)+2i-2
+            currentPos+=f(offSet);
+            offSet++;
             if(currentPos>=array.length) //如果现在的位置大于数组长度 就减去数组长度
                 currentPos-=array.length;
         }
             return currentPos;
+    }
+    private int f(int i){
+
+        if(i-1==0)
+            return 0;
+        else
+            return f(i-1)+2*i-2;
+
     }
 
     private void rehash(){
