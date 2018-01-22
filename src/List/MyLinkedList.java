@@ -12,7 +12,7 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType>
     {
         doClear( );
     }
-    
+
     private void clear( )
     {
         doClear( );

@@ -4,6 +4,7 @@ package graph;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.TreeSet;
 
 public class DirectedGraph1 {
     private  int V;           // number of vertices in this digraph
@@ -63,6 +64,7 @@ public class DirectedGraph1 {
     public static void main(String[] args) {
         DirectedGraph1 d=new DirectedGraph1();
         Vertex A=new Vertex("A");//建立顶点
+
         Vertex B=new Vertex("B");
         Vertex C=new Vertex("C");
         Vertex D=new Vertex("D");

@@ -14,6 +14,8 @@ package tree;// BinarySearchTree class
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
+import com.sun.org.apache.bcel.internal.generic.RET;
+
 /**
  * Implements an unbalanced binary search tree.
  * Note that all "matching" is based on the compareTo method.
@@ -51,6 +53,37 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>>
      * Find the smallest item in the tree.
      * @return smallest item or null if empty.
      */
+
+    public void deleteMin(){
+        root=deleteMin(root);
+    }
+    private BinaryNode deleteMin(BinaryNode x){
+        if(x.left==null) return x.right;
+        x.left=deleteMin(x.left);
+        return x;
+    }
+//    public void delete(AnyType x){
+//        root=delete(root,x);
+//    }
+//    private BinaryNode delete(BinaryNode<AnyType> x,AnyType key)
+//    {
+//        if(x==null) return null;
+//        int cmp=key.compareTo(x.element);
+//        if(cmp<0) x.left=delete(x.left,key);
+//        if(cmp>0) x.right=delete(x.right,key);
+//        else{
+//            if(x.right==null) return x.left;
+//            if(x.left==null) return x.right;
+//            BinaryNode<AnyType> t=x;
+//            x=min(t.right);
+//            x.right=deleteMin(t.right);
+//            x.left=t.left;
+//        }
+//        return x;
+//    }
+
+
+
     public AnyType findMin( )
     {
         if( isEmpty( ) )

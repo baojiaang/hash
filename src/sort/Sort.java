@@ -170,6 +170,7 @@ public final class Sort
             a[ rightEnd ] = tmpArray[ rightEnd ];
     }
 
+
     /**
      * Quicksort algorithm.
      * @param a an array of Comparable items.
@@ -245,7 +246,7 @@ public final class Sort
 
             swapReferences( a, i, right - 1 );   // Restore pivot
           //  print(a);
-            quicksort( a, left, i - 1 );    // Sort small elements
+            quicksort( a, left, i - 1 );    // Sort small elements   // 排序小的一部分
             quicksort( a, i + 1, right );   // Sort large elements
         }
         else  // Do an insertion sort on the subarray

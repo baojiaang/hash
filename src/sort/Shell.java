@@ -20,4 +20,9 @@ public class Shell {
             }
         }
     }
+
+    public static void main(String[] args) {
+        Comparable a[]={1,999,5};
+        Shell.sort(a);
+    }
 }

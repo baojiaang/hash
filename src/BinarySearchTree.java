@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 class BinarySearchTree< AnyType extends Comparable<? super AnyType> > {
 
     BinaryNode BnaryNode;
@@ -219,6 +223,18 @@ class BinarySearchTree< AnyType extends Comparable<? super AnyType> > {
         else
             return 1 + Math.max(height(t.left), height(t.right));
     }
+    public ArrayList<AnyType> preorderTraversal(BinaryNode root){
+        ArrayList<AnyType> result=new ArrayList<AnyType>();
+        if(root == null){
+            return result;
+        }
+        ArrayList<AnyType> left=preorderTraversal(root.left);
+        ArrayList<AnyType> right=preorderTraversal(root.right);
+        result.add((AnyType) root.element);
+        result.addAll(left);
+        result.addAll(right);
+        return result;
+    }
 
 
     // Basic node stored in unbalanced binary search trees
@@ -298,6 +314,51 @@ class BinarySearchTree< AnyType extends Comparable<? super AnyType> > {
         }
 
     }
+    public List<Integer> inorderTraversal(BinaryNode root) {
+        List<Integer> rst = new ArrayList<Integer>();
+        if (root == null) {
+            return rst;
+        }
+        Stack<BinaryNode> stack = new Stack<BinaryNode>();
+        BinaryNode node = root;
+        //Initialize
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
+        }
+        //iteratively add && process via inorder traversal
+        while (!stack.isEmpty()) {
+            node = stack.pop();
+            rst.add((Integer) node.element);
+            if (node.right != null) {//process right, but put right's left children on top of stack
+                node = node.right;
+                while (node != null) {
+                    stack.push(node);
+                    node = node.left;
+                }
+            }
+
+        }
+        return rst;
+    }
+
+//    public ArrayList<Integer> preorderTraversal(BinaryNode root) {
+//        ArrayList<Integer> rst = new ArrayList<Integer>();
+//        if (root == null) {
+//            return rst;
+//        }
+//        Stack<BinaryNode> stack = new Stack<TreeNode>();
+//        stack.push(root);
+//        while (!stack.isEmpty()) {
+//            TreeNode node = stack.pop();
+//            if (node != null) {
+//                rst.add(node.val);
+//                stack.push(node.right);
+//                stack.push(node.left);
+//            }
+//        }
+//        return rst;
+//    }
 
     public static void main(String[] args) {
         BinarySearchTree b = new BinarySearchTree();
