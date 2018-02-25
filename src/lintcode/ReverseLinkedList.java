@@ -1,12 +1,12 @@
 package lintcode;
 
 public class ReverseLinkedList {
-    public ListNode reverse(ListNode head) {
+    public ListNode1 reverse(ListNode1 head) {
         // write your code here
-        ListNode pre=null;
-        ListNode cur=head;
+        ListNode1 pre=null;
+        ListNode1 cur=head;
         while(cur!=null){
-            ListNode next=cur.next;
+            ListNode1 next=cur.next;
             cur.next=pre;
             pre=cur;
             cur=next;
@@ -14,10 +14,10 @@ public class ReverseLinkedList {
         return pre;
     }
 }
-class ListNode{
+class ListNode1{
     int val;
-    ListNode next;
-    public ListNode(int val){
+    ListNode1 next;
+    public ListNode1(int val){
         this.val=val;
         this.next=null;
     }
