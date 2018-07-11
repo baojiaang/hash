@@ -9,7 +9,7 @@ public class FindAwesomeNumber {
     public int number(int n){
         ArrayList a=new ArrayList();
         Stack s=new Stack();
-        for (int i=2;i<=(n/2);i++){
+        for (int i=2;i<=n;i++){
             if(n%i==0){
               a.add(i);
                 s.push(i);
